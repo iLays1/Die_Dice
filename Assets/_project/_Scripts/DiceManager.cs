@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DiceManager : MonoBehaviour
+public class DiceManager : Singleton<DiceManager>
 {
     public static UnityEvent OnUpdateDiceValues = new UnityEvent();
 
@@ -33,8 +33,9 @@ public class DiceManager : MonoBehaviour
     const float JUMPTIME = 0.8f;
     const float JUMPFORCE = 4f;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         UpdateUI();
 
         CombatManager.OnTurnStart.AddListener(() =>
@@ -56,14 +57,6 @@ public class DiceManager : MonoBehaviour
         CustomUtility.ShuffleList(ref diceInBag);
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            RollDice();
-        }
-    }
-
     public void DrawDice() => StartCoroutine(DrawDiceCoroutine());
     IEnumerator DrawDiceCoroutine()
     {
@@ -72,7 +65,7 @@ public class DiceManager : MonoBehaviour
         {
             if (diceInBag.Count <= 0)
             {
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(1f);
                 foreach (var discardedDie in diceInDiscard)
                 {
                     diceInBag.Add(discardedDie);
@@ -156,9 +149,10 @@ public class DiceManager : MonoBehaviour
         attacksRolled += attacks;
         blocksRolled += blocks;
         skullsRolled += skulls;
-
         OnUpdateDiceValues.Invoke();
         UpdateUI();
+        
+        yield return new WaitForSeconds(1f);
 
         DiscardDice();
 
@@ -180,6 +174,20 @@ public class DiceManager : MonoBehaviour
         }
     }
 
+    public void DiscardThenDraw()
+    {
+        StartCoroutine(DiscardThenDrawCoroutine());
+    }
+    IEnumerator DiscardThenDrawCoroutine()
+    {
+        CombatManager.Instance.state = CombatState.Animation;
+        yield return new WaitForSeconds(0.05f);
+        DiscardDice();
+        yield return new WaitForSeconds(0.3f);
+        DrawDice();
+        CombatManager.Instance.state = CombatState.PlayerTurn;
+    }
+
     void UpdateUI()
     {
         float punchFactor = 40f;
@@ -189,11 +197,11 @@ public class DiceManager : MonoBehaviour
         skullCountText.transform.parent.DOComplete();
         skullCountText.transform.parent.DOPunchScale(skullCountText.transform.parent.lossyScale * punchFactor, punchTime, 0, 0.5f);
 
-        attackCountText.text = $": {attacksRolled}<size=45>x{PlayerDataSystem.Instance.playerAttackPower}";
+        attackCountText.text = $": {attacksRolled}<size=45>x{PlayerDataSystem.Instance.attackPower}";
         attackCountText.transform.parent.DOComplete();
         attackCountText.transform.parent.DOPunchScale(attackCountText.transform.parent.lossyScale * punchFactor, punchTime, 0, 0.5f);
 
-        blockCountText.text = $": {blocksRolled}<size=45>x{PlayerDataSystem.Instance.playerBlockPower}";
+        blockCountText.text = $": {blocksRolled}<size=45>x{PlayerDataSystem.Instance.blockPower}";
         blockCountText.transform.parent.DOComplete();
         blockCountText.transform.parent.DOPunchScale(blockCountText.transform.parent.lossyScale * punchFactor, punchTime, 0, 0.5f);
     }

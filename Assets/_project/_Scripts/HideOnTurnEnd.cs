@@ -18,12 +18,12 @@ public class HideOnTurnEnd : MonoBehaviour
     void TurnStart()
     {
         transform.DOComplete();
-        transform.DOMove(opos, 1f).SetEase(Ease.OutBack);
+        transform.DOMove(opos, 0.8f);
     }
 
     void TurnEnd()
     {
         transform.DOComplete();
-        transform.DOMove(opos + (Vector3.down * 10), 0.6f).SetEase(Ease.InBack);
+        transform.DOMove(opos + (Vector3.down * 10), 0.6f);
     }
 }

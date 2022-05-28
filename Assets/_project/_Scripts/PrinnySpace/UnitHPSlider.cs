@@ -25,7 +25,7 @@ public class UnitHPSlider : MonoBehaviour
     {
         slider.maxValue = unit.maxHP;
         slider.DOKill();
-        slider.DOValue(unit.HP, 0.3f);
+        slider.DOValue(unit.HP, 0.3f).SetEase(Ease.OutBounce);
 
         if (unit.block <= 0)
         {

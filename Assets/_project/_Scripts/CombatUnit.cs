@@ -13,6 +13,7 @@ public class CombatUnit : MonoBehaviour
     [HideInInspector]
     public UnityEvent OnUnitDeath = new UnityEvent();
 
+    public Transform unitCanvas;
     public Transform textPopupLocation;
 
     public int HP;
@@ -28,17 +29,22 @@ public class CombatUnit : MonoBehaviour
             block = 0;
             OnValuesChange.Invoke();
         });
+
+        unitCanvas.SetParent(null);
+        unitCanvas.position = transform.position + (-Vector3.forward*5);
     }
 
     public void GainArmour(int amount)
     {
         block += amount;
-        TextPopup.Create($"+{amount}", Color.cyan, textPopupLocation.position);
+        TextPopup.Create($"{amount}", Color.cyan, textPopupLocation.position);
         
         OnValuesChange.Invoke();
     }
     public void TakeDamage(int damage)
     {
+        var hpBeforeHit = HP;
+
         block -= damage;
 
         if(block < 0)
@@ -47,12 +53,19 @@ public class CombatUnit : MonoBehaviour
             block = 0;
         }
 
-        TextPopup.Create($"-{damage}", Color.red, textPopupLocation.position);
-
+        Color hitColor = Color.grey;
         transform.DOComplete();
-        transform.DOPunchPosition(Vector3.down * 0.4f, 0.8f).SetEase(Ease.OutElastic);
+        transform.DOPunchPosition(Vector3.down * 0.2f, 0.8f).SetEase(Ease.OutElastic);
 
-        if(HP <= 0)
+        if (hpBeforeHit > HP)
+        {
+            hitColor = Color.red;
+            transform.DOPunchScale((Vector3.back + Vector3.right) * 0.2f, 0.4f, 0);
+        }
+
+        TextPopup.Create($"-{damage}", hitColor, textPopupLocation.position);
+
+        if (HP <= 0)
         {
             HP = 0;
             Death();
@@ -63,6 +76,7 @@ public class CombatUnit : MonoBehaviour
 
     public void Death()
     {
+        Destroy(unitCanvas.gameObject);
         OnUnitDeath.Invoke();
     }
 }
