@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3926354392259319491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3926354392259319489}
+  - component: {fileID: 3926354392259319490}
+  m_Layer: 0
+  m_Name: PlayerDataSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3926354392259319489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3926354392259319491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3926354392259319490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3926354392259319491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a789c0efd0e59543a7052ffd15abc0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dicePool:
+  - {fileID: 11400000, guid: ba0ebfe277e5bb04391087dd627d154c, type: 2}
+  - {fileID: 11400000, guid: f711ce77b6d7c064a85ac6a266cddd0b, type: 2}
+  - {fileID: 11400000, guid: 7fd33d0dd3569224ead5ba366779b22e, type: 2}
+  - {fileID: 11400000, guid: 9c2099c7a290fa146917236df8de1f98, type: 2}
+  - {fileID: 11400000, guid: a59d9b9a0452b1d4ca88af5bd713fcb9, type: 2}
+  - {fileID: 11400000, guid: 59b108c923bc29d4a8be4f52170d4008, type: 2}
+  dice:
+  - {fileID: 11400000, guid: 58c3c8e126c9aa94d8145cfabe796614, type: 2}
+  - {fileID: 11400000, guid: 58c3c8e126c9aa94d8145cfabe796614, type: 2}
+  - {fileID: 11400000, guid: 58c3c8e126c9aa94d8145cfabe796614, type: 2}
+  - {fileID: 11400000, guid: 5f77850bd87dad24b84e2cd2e7c132d3, type: 2}
+  - {fileID: 11400000, guid: 5f77850bd87dad24b84e2cd2e7c132d3, type: 2}
+  - {fileID: 11400000, guid: 7fd33d0dd3569224ead5ba366779b22e, type: 2}
+  abilities:
+  - {fileID: 11400000, guid: 49813f54f2d95114c9a1c2b1f0a2e16a, type: 2}
+  - {fileID: 11400000, guid: 4cee544e0be3ab84dbc4651e5267f2ae, type: 2}
+  - {fileID: 11400000, guid: d6cf0a4413647a846ab64fe8bfbeb473, type: 2}
+  baseAttackPower: 1
+  baseBlockPower: 1
+  tempAttackPower: 0
+  tempBlockPower: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerAbility_TempAPower
   m_EditorClassIdentifier: 
   abilityName: Anger
-  icon: {fileID: 21300000, guid: 9ea711dbc82130444b351412d6fb6c1a, type: 3}
+  description: All Attacks Deal 1 more damage this turn
+  icon: {fileID: 21300000, guid: 410b248ecfee7ae479d9a08f90b12bf6, type: 3}
   uses: 1
   function: 0

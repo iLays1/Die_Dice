@@ -32,6 +32,8 @@ public class CombatUnit : MonoBehaviour
 
         unitCanvas.SetParent(null);
         unitCanvas.position = transform.position + (-Vector3.forward*5);
+
+        WinLoseManager.OnCombatEnd.AddListener(() => Destroy(unitCanvas.gameObject));
     }
 
     public void GainArmour(int amount)
@@ -76,7 +78,7 @@ public class CombatUnit : MonoBehaviour
 
     public void Death()
     {
-        Destroy(unitCanvas.gameObject);
+        transform.DOMoveY(-15, 2f).SetEase(Ease.InBack);
         OnUnitDeath.Invoke();
     }
 }

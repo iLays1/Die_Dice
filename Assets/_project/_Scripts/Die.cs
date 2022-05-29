@@ -2,11 +2,12 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Die : MonoBehaviour
 {
     public DiceFaceData currentFace { get { return data.faces[face]; } }
-
+    
     public int face = -1;
     public MeshRenderer[] faceRenderers;
     public DieData data;
@@ -23,7 +24,8 @@ public class Die : MonoBehaviour
 
     private void Start()
     {
-        data.Load(this);
+        if(data != null)
+            data.Load(this);
     }
 
     public void RollRandom()

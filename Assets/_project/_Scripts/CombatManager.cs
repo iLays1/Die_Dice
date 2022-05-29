@@ -34,14 +34,17 @@ public class CombatManager : Singleton<CombatManager>
         {
             state = CombatState.BattleOver;
             Debug.Log("Lose");
+            WinLoseManager.OnLoseEvent.Invoke();
             StopAllCoroutines();
         });
         enemyUnit.OnUnitDeath.AddListener(() =>
         {
             state = CombatState.BattleOver;
             Debug.Log("Win");
+            WinLoseManager.OnWinEvent.Invoke();
             StopAllCoroutines();
         });
+        WinLoseManager.OnWinEvent.AddListener(() => { Instance = null; });
 
         base.Awake();
     }

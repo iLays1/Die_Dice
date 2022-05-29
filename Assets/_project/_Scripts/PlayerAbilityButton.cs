@@ -35,16 +35,18 @@ public class PlayerAbilityButton : MonoBehaviour
         descriptionObject.SetActive(false);
     }
 
+    private void OnMouseEnter()
+    {
+        if (CombatManager.Instance.state != CombatState.PlayerTurn)
+            return;
+        
+        descShown = true;
+        descriptionObject.SetActive(descShown);
+    }
     private void OnMouseOver()
     {
         if (CombatManager.Instance.state != CombatState.PlayerTurn)
             return;
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            descShown = !descShown;
-            descriptionObject.SetActive(descShown);
-        }
 
         if (Input.GetMouseButtonDown(0))
         {

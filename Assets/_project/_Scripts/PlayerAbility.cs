@@ -32,6 +32,14 @@ public class PlayerAbility : ScriptableObject
             case Ability.DiscardDice:
                 DiscardDice();
                 break;
+            case Ability.GainTempAttackPower:
+                PlayerDataSystem.Instance.tempAttackPower++;
+                DiceManager.Instance.UpdateUI();
+                break;
+            case Ability.GainTempBlockPower:
+                PlayerDataSystem.Instance.tempBlockPower++;
+                DiceManager.Instance.UpdateUI();
+                break;
         }
     }
 

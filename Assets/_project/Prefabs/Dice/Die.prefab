@@ -132,6 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 404223d988b168c408d0f23b1b384b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDieClicked:
+    m_PersistentCalls:
+      m_Calls: []
   face: -1
   faceRenderers:
   - {fileID: 418757699686671685}
@@ -526,6 +529,7 @@ GameObject:
   - component: {fileID: 7829306020275715202}
   - component: {fileID: 6315156654089832987}
   - component: {fileID: 3102563006722866245}
+  - component: {fileID: 4701967849357850141}
   m_Layer: 0
   m_Name: Die
   m_TagString: Untagged
@@ -590,6 +594,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: {fileID: 3956126491312851394}
+--- !u!114 &4701967849357850141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6272447018129168650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb0d98219a70fc4980e1965b55ad825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6543831111965325592
 GameObject:
   m_ObjectHideFlags: 0

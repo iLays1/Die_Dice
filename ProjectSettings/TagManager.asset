@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - 3D only UI
   - 
   - 
   - 
@@ -44,6 +44,15 @@ TagManager:
   - name: UI
     uniqueID: 2969283499
     locked: 0
+  - name: Effects
+    uniqueID: 318032419
+    locked: 0
+  - name: DicePickingUI
+    uniqueID: 1576910487
+    locked: 0
   - name: ToolTip
     uniqueID: 18611727
+    locked: 0
+  - name: DeckDisplay
+    uniqueID: 1796081035
     locked: 0

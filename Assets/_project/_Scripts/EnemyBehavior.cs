@@ -16,6 +16,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Awake()
     {
+        WinLoseManager.OnCombatEnd.AddListener(() => Destroy(this));
         unitSelf = GetComponent<CombatUnit>();
         QueNextAction();
     }

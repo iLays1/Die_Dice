@@ -11,8 +11,7 @@ public class DiceInfoPanel : MonoBehaviour
     public Image[] iconImages;
     bool shown = false;
     Vector3 oPos;
-
-
+    
     private void Start()
     {
         oPos = transform.position;
@@ -22,7 +21,7 @@ public class DiceInfoPanel : MonoBehaviour
 
     private void Update()
     {
-        if(CombatManager.Instance.state != CombatState.PlayerTurn)
+        if(CombatManager.Instance != null && CombatManager.Instance.state != CombatState.PlayerTurn)
         {
             if(shown)
                 Hide();

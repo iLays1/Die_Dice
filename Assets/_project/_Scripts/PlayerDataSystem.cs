@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerDataSystem : SingletonPersistent<PlayerDataSystem>
 {
+    public List<DieData> dicePool;
     public List<DieData> dice;
+    public List<PlayerAbility> abilities;
 
     public int baseAttackPower = 1;
     public int baseBlockPower = 1;

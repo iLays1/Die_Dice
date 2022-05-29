@@ -19,7 +19,7 @@ public class DiceInfoPanelDisplayer : MonoBehaviour
     {
         DiceInfoPanel.displayerHovered = this;
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
             infoPanel.Show(die);
         }

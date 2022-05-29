@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6eb38ae2314f3a429aaf93ad04ec2b2, type: 3}
-  m_Name: DiceFace_A
+  m_Name: DiceFace_Attack
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 21300000, guid: 9ea711dbc82130444b351412d6fb6c1a, type: 3}
   type: 2

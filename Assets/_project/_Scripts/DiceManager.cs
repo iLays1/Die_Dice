@@ -18,6 +18,8 @@ public class DiceManager : Singleton<DiceManager>
     [Space]
     public Transform dieSpawnPos;
     public Transform dieDiscardPos;
+    public TextMeshProUGUI dieCountText;
+    public TextMeshProUGUI discardCountText;
 
     [Space]
     public TextMeshProUGUI skullCountText;
@@ -83,6 +85,7 @@ public class DiceManager : Singleton<DiceManager>
 
             die.data = diceInBag[0];
             diceInBag.RemoveAt(0);
+            UpdateDiceCounts();
 
             dice.Add(die);
 
@@ -102,6 +105,7 @@ public class DiceManager : Singleton<DiceManager>
 
             dice.Remove(die);
             diceInDiscard.Add(die.data);
+            UpdateDiceCounts();
 
             s.Append(die.transform.DOJump(dieDiscardPos.position, JUMPFORCE, 1, JUMPTIME * Random.Range(0.8f, 1.2f)).SetEase(jumpEase));
             s.AppendCallback(() => Destroy(die.transform.parent.gameObject));
@@ -188,15 +192,11 @@ public class DiceManager : Singleton<DiceManager>
         CombatManager.Instance.state = CombatState.PlayerTurn;
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
         float punchFactor = 40f;
         float punchTime = 0.5f;
-
-        skullCountText.text = $": {skullsRolled}";
-        skullCountText.transform.parent.DOComplete();
-        skullCountText.transform.parent.DOPunchScale(skullCountText.transform.parent.lossyScale * punchFactor, punchTime, 0, 0.5f);
-
+        
         attackCountText.text = $": {attacksRolled}<size=45>x{PlayerDataSystem.Instance.attackPower}";
         attackCountText.transform.parent.DOComplete();
         attackCountText.transform.parent.DOPunchScale(attackCountText.transform.parent.lossyScale * punchFactor, punchTime, 0, 0.5f);
@@ -204,5 +204,11 @@ public class DiceManager : Singleton<DiceManager>
         blockCountText.text = $": {blocksRolled}<size=45>x{PlayerDataSystem.Instance.blockPower}";
         blockCountText.transform.parent.DOComplete();
         blockCountText.transform.parent.DOPunchScale(blockCountText.transform.parent.lossyScale * punchFactor, punchTime, 0, 0.5f);
+    }
+
+    void UpdateDiceCounts()
+    {
+        dieCountText.text = $"Dice\n{diceInBag.Count}";
+        discardCountText.text = $"Discard\n{diceInDiscard.Count}";
     }
 }

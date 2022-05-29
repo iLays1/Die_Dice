@@ -12,7 +12,7 @@ public class IdleBob : MonoBehaviour
     {
         opos = transform.localPosition;
 
-        amount *= Random.Range(0.5f, 1.5f);
+        amount *= Random.Range(0.6f, 1.4f);
 
         Sequence s = DOTween.Sequence();
         s.Append(transform.DOLocalMove(opos + (Vector3.forward * amount), speed));

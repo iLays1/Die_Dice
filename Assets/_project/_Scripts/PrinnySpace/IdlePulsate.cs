@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class IdlePulsate : MonoBehaviour
 {
+    public float scale = 0.95f;
     public float speed = 0.8f;
     Vector3 oScale;
     private void Awake()
@@ -12,8 +13,6 @@ public class IdlePulsate : MonoBehaviour
         oScale = transform.localScale;
 
         Sequence s = DOTween.Sequence();
-        s.Append(transform.DOScale(oScale * 0.95f, speed));
-        s.Append(transform.DOScale(oScale, speed));
-        s.SetLoops(-1);
+        transform.DOScale(oScale * scale, speed).SetLoops(-1, LoopType.Yoyo);
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerAbility_TempBPower
   m_EditorClassIdentifier: 
   abilityName: Block
-  icon: {fileID: 21300000, guid: bb253aa4ab2ecd94ea0f2c8fdf9ae04d, type: 3}
+  description: All Blocks gain 1 more armour this turn
+  icon: {fileID: 21300000, guid: 08e410e87dd0d5e4d9ba12345c16d9b4, type: 3}
   uses: 1
   function: 1
