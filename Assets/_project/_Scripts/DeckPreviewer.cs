@@ -7,6 +7,7 @@ public class DeckPreviewer : MonoBehaviour
 {
     public DisplayDieCanvasPos[] dicePositions;
     public Transform panel;
+    public bool hideOnStart = true;
     Vector3 opos;
     bool hidden = false;
 
@@ -14,8 +15,11 @@ public class DeckPreviewer : MonoBehaviour
     {
         opos = panel.position;
 
-        panel.position = opos + (Vector3.down * 10);
-        hidden = true;
+        if(hideOnStart)
+        {
+            panel.position = opos + (Vector3.down * 10);
+            hidden = true;
+        }
 
         CombatManager.OnTurnEnd.AddListener(Hide);
 

@@ -37,6 +37,8 @@ public class DiceInfoPanel : MonoBehaviour
 
     public void Show(Die die)
     {
+        AudioManager.Instance.PlayAtRandomPitch("ClickBeep", 0.05f);
+
         for (int i = 0; i < iconImages.Length; i++)
         {
             var faceData = die.data.faces[i];

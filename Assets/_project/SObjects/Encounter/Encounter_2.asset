@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295926d7f438b474897e732e8b38ed42, type: 3}
+  m_Name: Encounter_2
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: c9449a9d9cd1609498feee6830e82f2c, type: 2}
+  enemyprefab: {fileID: 231416612, guid: 547e32a217c0efa4a9236472ba3a601b, type: 3}

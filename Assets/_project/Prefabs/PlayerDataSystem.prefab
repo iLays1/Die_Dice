@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3926354392259319489}
   - component: {fileID: 3926354392259319490}
+  - component: {fileID: 1258465705}
+  - component: {fileID: 7707213296654231926}
   m_Layer: 0
   m_Name: PlayerDataSystem
   m_TagString: Untagged
@@ -50,6 +52,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9c2099c7a290fa146917236df8de1f98, type: 2}
   - {fileID: 11400000, guid: a59d9b9a0452b1d4ca88af5bd713fcb9, type: 2}
   - {fileID: 11400000, guid: 59b108c923bc29d4a8be4f52170d4008, type: 2}
+  - {fileID: 11400000, guid: 58c3c8e126c9aa94d8145cfabe796614, type: 2}
+  - {fileID: 11400000, guid: 5f77850bd87dad24b84e2cd2e7c132d3, type: 2}
+  - {fileID: 11400000, guid: e71fb45ba8e493c44b948ccf46d6ce9b, type: 2}
+  - {fileID: 11400000, guid: 80f53a9b3abfb644da4eae85e6aa948c, type: 2}
+  - {fileID: 11400000, guid: 6b9a4203b5464ab44a32c5fe8fa8231f, type: 2}
   dice:
   - {fileID: 11400000, guid: 58c3c8e126c9aa94d8145cfabe796614, type: 2}
   - {fileID: 11400000, guid: 58c3c8e126c9aa94d8145cfabe796614, type: 2}
@@ -61,7 +68,95 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 49813f54f2d95114c9a1c2b1f0a2e16a, type: 2}
   - {fileID: 11400000, guid: 4cee544e0be3ab84dbc4651e5267f2ae, type: 2}
   - {fileID: 11400000, guid: d6cf0a4413647a846ab64fe8bfbeb473, type: 2}
+  SpousePool:
+  - {fileID: 11400000, guid: 7185f7512b2768b4887d7042307d9c7d, type: 2}
+  - {fileID: 11400000, guid: 1463792914462084ab311934d2a1d5c9, type: 2}
+  - {fileID: 11400000, guid: ccf3489d2772fb54389ff6981b079632, type: 2}
+  - {fileID: 11400000, guid: 89a3345a1421ca8449a39ef37899dacc, type: 2}
+  - {fileID: 11400000, guid: b60e27f6f97f35f48a8781cd54e82702, type: 2}
+  - {fileID: 11400000, guid: 8a5269edf02d50e4ab680c8070f37519, type: 2}
+  - {fileID: 11400000, guid: e04497acf5a68454e93b330c304554b1, type: 2}
+  - {fileID: 11400000, guid: 7a2714c89f7528c429ddd6cf5de57c6f, type: 2}
+  - {fileID: 11400000, guid: a8e21a2916493044faaaebf21f15aa55, type: 2}
+  - {fileID: 11400000, guid: bcc0fd4b941db9e42a150a9ec47741bf, type: 2}
+  lastSpouse: {fileID: 0}
+  nextEncounter: {fileID: 11400000, guid: d284410fe26accd45820caa42aef9f2c, type: 2}
   baseAttackPower: 1
   baseBlockPower: 1
   tempAttackPower: 0
   tempBlockPower: 0
+--- !u!114 &1258465705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3926354392259319491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004335790e811bd4dbb5c2b47a9d29cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  encounters:
+  - {fileID: 11400000, guid: d284410fe26accd45820caa42aef9f2c, type: 2}
+  - {fileID: 11400000, guid: 9103bd71ae57a394784de34674ac8006, type: 2}
+  - {fileID: 11400000, guid: ce648d4529c44f547a27e30cfe3e106d, type: 2}
+  - {fileID: 11400000, guid: 47503103697fbe042b7e8876ea7a276f, type: 2}
+  - {fileID: 11400000, guid: 140ef2ebd4cbf5d40873a58a4da46687, type: 2}
+--- !u!114 &7707213296654231926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3926354392259319491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3399d024b8d4f24982baf2451b69518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: DieRoll
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: dab4fcce4e172144388aeb9b320547f7, type: 3}
+    volume: 0.2
+  - name: Shuffle
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 3ddd91485f6212b4ca4ee7fa052336dc, type: 3}
+    volume: 0.4
+  - name: Hit
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 3261e7b272ff0bc4fb2a7cc9c8f3f513, type: 3}
+    volume: 0.3
+  - name: Win
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 6b80c0aa6af456a4cb9526eb7fa95c84, type: 3}
+    volume: 0.2
+  - name: Lose
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 9037a49d2cc39ce489d88c5e5a26fc5b, type: 3}
+    volume: 0.6
+  - name: MenuBeep
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: a28e3d5a26a6b234d98418071082a904, type: 3}
+    volume: 0.2
+  - name: 3Skulls
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 1e98e9b4e6b94f44699decd30eceee60, type: 3}
+    volume: 0.4
+  - name: SkullPoof
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 3a9b251971aa85945b8444fc7ade2534, type: 3}
+    volume: 0.3
+  - name: ClickBeep
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 533446c60722da04fba3517a1715ab42, type: 3}
+    volume: 0.2
+  - name: Block
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 35cd0bf3745d7804aac53b5af211373d, type: 3}
+    volume: 0.1
+  - name: Heh
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 7d4054c0cc7442440a0932fe81d20574, type: 3}
+    volume: 0.05

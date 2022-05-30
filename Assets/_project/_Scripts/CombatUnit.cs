@@ -40,7 +40,8 @@ public class CombatUnit : MonoBehaviour
     {
         block += amount;
         TextPopup.Create($"{amount}", Color.cyan, textPopupLocation.position);
-        
+
+        AudioManager.Instance.PlayAtRandomPitch("Block", 0.2f);
         OnValuesChange.Invoke();
     }
     public void TakeDamage(int damage)
@@ -59,6 +60,7 @@ public class CombatUnit : MonoBehaviour
         transform.DOComplete();
         transform.DOPunchPosition(Vector3.down * 0.2f, 0.8f).SetEase(Ease.OutElastic);
 
+        AudioManager.Instance.PlayAtRandomPitch("Hit", 0.2f);
         if (hpBeforeHit > HP)
         {
             hitColor = Color.red;

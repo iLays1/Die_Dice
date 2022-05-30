@@ -63,6 +63,6 @@ public class DicePicking : MonoBehaviour
             }
         }
 
-        SceneSystem.Instance.LoadScene(-1, 1f);
+        SceneSystem.Instance.NextLevel();
     }
 }

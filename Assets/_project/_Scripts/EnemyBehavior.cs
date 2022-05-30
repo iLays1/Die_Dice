@@ -11,6 +11,8 @@ public class EnemyBehavior : MonoBehaviour
 
     public int actionIndex = -1;
     public int[] indexOrder;
+    public int power = 0;
+    public int powerGrowth = 1;
 
     CombatUnit unitSelf;
 
@@ -18,6 +20,8 @@ public class EnemyBehavior : MonoBehaviour
     {
         WinLoseManager.OnCombatEnd.AddListener(() => Destroy(this));
         unitSelf = GetComponent<CombatUnit>();
+
+        indexOrder = CustomUtility.GetRandomIntArray(0, actions.Length);
         QueNextAction();
     }
 
@@ -31,18 +35,15 @@ public class EnemyBehavior : MonoBehaviour
 
     private void QueNextAction()
     {
-        if(indexOrder == null)
-        {
-            indexOrder = CustomUtility.GetRandomIntArray(0, actions.Length);
-        }
-
         actionIndex++;
         if (actionIndex >= indexOrder.Length)
         {
             actionIndex = 0;
+            power += powerGrowth;
+            DialogueSystem.Instance.PlayText("The Heros Foe grows in power!", 2f, 3f);
             indexOrder = CustomUtility.GetRandomIntArray(0, actions.Length);
         }
-        previewer.ShowAction(currentAction);
+        previewer.ShowAction(currentAction, this);
     }
 
     public void Attack(int damage, CombatUnit playerUnit) => StartCoroutine(AttackCoroutine(damage, playerUnit));
@@ -56,7 +57,7 @@ public class EnemyBehavior : MonoBehaviour
         s.Append(unitSelf.transform.DORotate(new Vector3(90, -90, 90), 0.3f));
 
         yield return new WaitForSeconds(0.8f);
-        playerUnit.TakeDamage(damage);
+        playerUnit.TakeDamage(damage + power);
         yield return new WaitForSeconds(0.5f);
         QueNextAction();
     }

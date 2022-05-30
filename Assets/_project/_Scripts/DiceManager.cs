@@ -74,6 +74,7 @@ public class DiceManager : Singleton<DiceManager>
                 }
                 diceInDiscard.Clear();
 
+                AudioManager.Instance.Play("Shuffle");
                 CustomUtility.ShuffleList(ref diceInBag);
             }
             if (diceInBag.Count <= 0)
@@ -168,6 +169,7 @@ public class DiceManager : Singleton<DiceManager>
             OnUpdateDiceValues.Invoke();
             UpdateUI();
 
+            AudioManager.Instance.Play("3Skulls");
             CombatManager.Instance.state = CombatState.PlayerTurn;
             CombatManager.Instance.EndTurn();
         }

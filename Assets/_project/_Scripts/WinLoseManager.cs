@@ -24,6 +24,7 @@ public class WinLoseManager : MonoBehaviour
     }
     IEnumerator WinCoroutine()
     {
+        AudioManager.Instance.Play("Win");
         CombatEnd();
         yield return new WaitForSeconds(1.5f);
         dicePicking.gameObject.SetActive(true);
@@ -34,9 +35,13 @@ public class WinLoseManager : MonoBehaviour
     }
     IEnumerator LoseCoroutine()
     {
+        AudioManager.Instance.Play("Lose");
         CombatEnd();
 
         yield return null;
+
+        //Spouse Scene
+        SceneSystem.Instance.LoadScene(2, 2.2f);
     }
 
     void CombatEnd()

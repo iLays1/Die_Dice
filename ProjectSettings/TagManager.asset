@@ -56,3 +56,6 @@ TagManager:
   - name: DeckDisplay
     uniqueID: 1796081035
     locked: 0
+  - name: Dialouge
+    uniqueID: 664549591
+    locked: 0

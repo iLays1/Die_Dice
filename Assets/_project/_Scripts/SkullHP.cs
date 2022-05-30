@@ -40,7 +40,6 @@ public class SkullHP : MonoBehaviour
     {
         if (index >= images.Length)
             return;
-
         
         images[index].Hide();
         index++;

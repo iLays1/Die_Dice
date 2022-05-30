@@ -10,11 +10,11 @@ public class ActionPreviewer : MonoBehaviour
     public Image iconImage;
     public TextMeshProUGUI valueText;
 
-    public void ShowAction(EnemyAction action)
+    public void ShowAction(EnemyAction action, EnemyBehavior enemy)
     {
         iconImage.sprite = action.previewIcon;
         iconImage.color = action.previewIconColor;
-        valueText.text = action.value.ToString();
+        valueText.text = (action.value + enemy.power).ToString();
 
         transform.DOPunchScale(transform.lossyScale + (Vector3.one*0.4f), 0.4f);
     }

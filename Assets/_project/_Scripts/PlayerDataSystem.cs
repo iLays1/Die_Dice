@@ -7,6 +7,11 @@ public class PlayerDataSystem : SingletonPersistent<PlayerDataSystem>
     public List<DieData> dicePool;
     public List<DieData> dice;
     public List<PlayerAbility> abilities;
+    [Space]
+    public List<SpouseData> SpousePool;
+    public SpouseData lastSpouse;
+    [Space]
+    public EncounterData nextEncounter;
 
     public int baseAttackPower = 1;
     public int baseBlockPower = 1;

@@ -27,20 +27,20 @@ public class CombatManager : Singleton<CombatManager>
 
     protected override void Awake()
     {
+        enemyUnit = GetComponent<EncounterLoader>().enemy;
+
         diceManager = FindObjectOfType<DiceManager>();
         enemyBehavior = enemyUnit.GetComponent<EnemyBehavior>();
 
         playerUnit.OnUnitDeath.AddListener(() =>
         {
             state = CombatState.BattleOver;
-            Debug.Log("Lose");
             WinLoseManager.OnLoseEvent.Invoke();
             StopAllCoroutines();
         });
         enemyUnit.OnUnitDeath.AddListener(() =>
         {
             state = CombatState.BattleOver;
-            Debug.Log("Win");
             WinLoseManager.OnWinEvent.Invoke();
             StopAllCoroutines();
         });

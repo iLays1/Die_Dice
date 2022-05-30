@@ -19,7 +19,8 @@ public class SkullHPImage : MonoBehaviour
     {
         hidden = true;
         particles.Play();
-        transform.DOScale(Vector3.zero, 0.4f).SetEase(Ease.InBack);
+        transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);
+        AudioManager.Instance.Play("SkullPoof");
     }
     public void Show()
     {

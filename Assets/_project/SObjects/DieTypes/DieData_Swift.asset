@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cdf241c7e537ca42a6d3bb6fcdef3d1, type: 3}
+  m_Name: DieData_Swift
+  m_EditorClassIdentifier: 
+  faces:
+  - {fileID: 11400000, guid: 2c744918fcc74b647a6a5a01f968e03e, type: 2}
+  - {fileID: 11400000, guid: 2c744918fcc74b647a6a5a01f968e03e, type: 2}
+  - {fileID: 11400000, guid: 2c744918fcc74b647a6a5a01f968e03e, type: 2}
+  - {fileID: 11400000, guid: 11ee1b556e501ba49b4c3a53a6865e4d, type: 2}
+  - {fileID: 11400000, guid: 11ee1b556e501ba49b4c3a53a6865e4d, type: 2}
+  - {fileID: 11400000, guid: 489708961739bd845a7652aab350e607, type: 2}
+  color: {r: 0.4712976, g: 0.5113234, b: 0.8396226, a: 1}
