@@ -136,14 +136,6 @@ MonoBehaviour:
     source: {fileID: 0}
     clip: {fileID: 8300000, guid: 9037a49d2cc39ce489d88c5e5a26fc5b, type: 3}
     volume: 0.6
-  - name: MenuBeep
-    source: {fileID: 0}
-    clip: {fileID: 8300000, guid: a28e3d5a26a6b234d98418071082a904, type: 3}
-    volume: 0.2
-  - name: 3Skulls
-    source: {fileID: 0}
-    clip: {fileID: 8300000, guid: 1e98e9b4e6b94f44699decd30eceee60, type: 3}
-    volume: 0.4
   - name: SkullPoof
     source: {fileID: 0}
     clip: {fileID: 8300000, guid: 3a9b251971aa85945b8444fc7ade2534, type: 3}
@@ -151,12 +143,8 @@ MonoBehaviour:
   - name: ClickBeep
     source: {fileID: 0}
     clip: {fileID: 8300000, guid: 533446c60722da04fba3517a1715ab42, type: 3}
-    volume: 0.2
+    volume: 0.05
   - name: Block
     source: {fileID: 0}
     clip: {fileID: 8300000, guid: 35cd0bf3745d7804aac53b5af211373d, type: 3}
     volume: 0.1
-  - name: Heh
-    source: {fileID: 0}
-    clip: {fileID: 8300000, guid: 7d4054c0cc7442440a0932fe81d20574, type: 3}
-    volume: 0.05

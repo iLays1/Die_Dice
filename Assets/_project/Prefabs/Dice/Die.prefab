@@ -90,7 +90,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4934214056345678522}
-  - component: {fileID: 3956126491312851394}
   - component: {fileID: 7688297441472430533}
   - component: {fileID: 872703065318391422}
   m_Layer: 0
@@ -120,30 +119,6 @@ Transform:
   m_Father: {fileID: 6272447018129168647}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3956126491312851394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3646348154138042329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 404223d988b168c408d0f23b1b384b2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnDieClicked:
-    m_PersistentCalls:
-      m_Calls: []
-  face: -1
-  faceRenderers:
-  - {fileID: 418757699686671685}
-  - {fileID: 4267988801336079931}
-  - {fileID: 5604891468277792901}
-  - {fileID: 8413605969422382345}
-  - {fileID: 4242591735656960699}
-  - {fileID: 8802309588131578966}
-  data: {fileID: 11400000, guid: 58c3c8e126c9aa94d8145cfabe796614, type: 2}
 --- !u!23 &7688297441472430533
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -527,6 +502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6272447018129168647}
   - component: {fileID: 7829306020275715202}
+  - component: {fileID: 7398978982746338954}
   - component: {fileID: 6315156654089832987}
   - component: {fileID: 3102563006722866245}
   - component: {fileID: 4701967849357850141}
@@ -565,6 +541,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1, y: 1.1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7398978982746338954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6272447018129168650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404223d988b168c408d0f23b1b384b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  face: -1
+  faceRenderers:
+  - {fileID: 418757699686671685}
+  - {fileID: 4267988801336079931}
+  - {fileID: 5604891468277792901}
+  - {fileID: 8413605969422382345}
+  - {fileID: 4242591735656960699}
+  - {fileID: 8802309588131578966}
+  data: {fileID: 11400000, guid: 58c3c8e126c9aa94d8145cfabe796614, type: 2}
 --- !u!114 &6315156654089832987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9190e4de24a8ceb4583659babe0b2859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  die: {fileID: 3956126491312851394}
+  die: {fileID: 7398978982746338954}
 --- !u!114 &4701967849357850141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,6 +603,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb0d98219a70fc4980e1965b55ad825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  die: {fileID: 0}
 --- !u!1 &6543831111965325592
 GameObject:
   m_ObjectHideFlags: 0

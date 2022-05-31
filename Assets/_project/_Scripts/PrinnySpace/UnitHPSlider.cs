@@ -15,6 +15,9 @@ public class UnitHPSlider : MonoBehaviour
 
     public CombatUnit unit;
 
+    public Image hpBarImage;
+    public Gradient colorGradient;
+
     public void Awake()
     {
         unit.OnValuesChange.AddListener(UpdateUI);
@@ -25,7 +28,9 @@ public class UnitHPSlider : MonoBehaviour
     {
         slider.maxValue = unit.maxHP;
         slider.DOKill();
-        slider.DOValue(unit.HP, 0.3f).SetEase(Ease.OutBounce);
+        slider.DOValue(unit.HP, 0.3f).SetEase(Ease.OutBack);
+        
+        hpBarImage.color = colorGradient.Evaluate((float)unit.HP/(float)unit.maxHP);
 
         if (unit.block <= 0)
         {
