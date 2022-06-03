@@ -2,15 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScreenShaker : MonoBehaviour
+public class ScreenShaker : Singleton<ScreenShaker>
 {
-    public static ScreenShaker main;
-
-    private void Start()
-    {
-        main = this;
-    }
-
     public void Shake(float dur, float mag)
     {
         StartCoroutine(ShakeCoroutine(dur,mag));

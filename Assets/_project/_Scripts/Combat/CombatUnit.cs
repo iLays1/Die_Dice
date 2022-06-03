@@ -46,13 +46,13 @@ public class CombatUnit : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        var hpBeforeHit = HP;
-
         block -= damage;
+        var trueDamage = 0;
 
         if(block < 0)
         {
-            HP -= Mathf.Abs(block);
+            trueDamage = Mathf.Abs(block);
+            HP -= trueDamage;
             block = 0;
         }
 
@@ -61,13 +61,13 @@ public class CombatUnit : MonoBehaviour
         transform.DOPunchPosition(Vector3.down * 0.2f, 0.8f).SetEase(Ease.OutElastic);
 
         AudioSystem.Instance.Play("Hit");
-        if (hpBeforeHit > HP)
+        if (trueDamage > 0)
         {
             hitColor = Color.red;
             transform.DOPunchScale((Vector3.back + Vector3.right) * 0.2f, 0.4f, 0);
         }
-
-        TextPopup.Create($"-{damage}", hitColor, textPopupLocation.position);
+        
+        TextPopup.Create($"-{trueDamage}", hitColor, textPopupLocation.position);
 
         if (HP <= 0)
         {

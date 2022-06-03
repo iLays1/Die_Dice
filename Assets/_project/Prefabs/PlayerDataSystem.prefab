@@ -81,8 +81,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bcc0fd4b941db9e42a150a9ec47741bf, type: 2}
   lastSpouse: {fileID: 0}
   nextEncounter: {fileID: 11400000, guid: d284410fe26accd45820caa42aef9f2c, type: 2}
-  baseAttackPower: 1
-  baseBlockPower: 1
+  baseAttackPower: 2
+  baseBlockPower: 2
   tempAttackPower: 0
   tempBlockPower: 0
 --- !u!114 &1258465705
@@ -101,8 +101,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d284410fe26accd45820caa42aef9f2c, type: 2}
   - {fileID: 11400000, guid: 9103bd71ae57a394784de34674ac8006, type: 2}
   - {fileID: 11400000, guid: ce648d4529c44f547a27e30cfe3e106d, type: 2}
-  - {fileID: 11400000, guid: 47503103697fbe042b7e8876ea7a276f, type: 2}
-  - {fileID: 11400000, guid: 140ef2ebd4cbf5d40873a58a4da46687, type: 2}
 --- !u!114 &7707213296654231926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +133,7 @@ MonoBehaviour:
   - name: Lose
     source: {fileID: 0}
     clip: {fileID: 8300000, guid: 9037a49d2cc39ce489d88c5e5a26fc5b, type: 3}
-    volume: 0.6
+    volume: 0.3
   - name: SkullPoof
     source: {fileID: 0}
     clip: {fileID: 8300000, guid: 3a9b251971aa85945b8444fc7ade2534, type: 3}

@@ -53,6 +53,13 @@ public class PlayerDiceManager : Singleton<PlayerDiceManager>
         }
         CustomUtility.ShuffleList(ref diceInBag);
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            RollDice();
+        }
+    }
 
     public void DrawDice() => StartCoroutine(DrawDiceCoroutine());
     IEnumerator DrawDiceCoroutine()
@@ -125,11 +132,11 @@ public class PlayerDiceManager : Singleton<PlayerDiceManager>
         int skulls = 0;
         int attacks = 0;
         int blocks = 0;
-
+        List<DiceFaceData> facesRolled = new List<DiceFaceData>();
         foreach(var die in dice)
         {
             die.RollRandom();
-            
+            facesRolled.Add(die.currentFace);
             var face = die.currentFace;
             switch (face.type)
             {
@@ -145,13 +152,31 @@ public class PlayerDiceManager : Singleton<PlayerDiceManager>
             }
         }
 
+        bool allMatching = true;
+        foreach(var d in facesRolled)
+        {
+            if (d != facesRolled[0])
+            {
+                allMatching = false;
+            }
+        }
+
         yield return new WaitForSeconds(2f);
 
         attacksRolled += attacks;
         blocksRolled += blocks;
-        skullsRolled += skulls;
+
+        if(!allMatching)
+            skullsRolled += skulls;
+
         OnUpdateDiceValues.Invoke();
-        
+
+        if (allMatching)
+        {
+            TextPopup.Create("Matched 3", Color.yellow, transform.position);
+            Debug.Log($"CRIT");
+        }
+
         yield return new WaitForSeconds(1f);
 
         DiscardDice();
@@ -184,6 +209,5 @@ public class PlayerDiceManager : Singleton<PlayerDiceManager>
         DiscardDice();
         yield return new WaitForSeconds(0.3f);
         DrawDice();
-        CombatManager.Instance.state = CombatState.PlayerTurn;
     }
 }

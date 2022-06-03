@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DiceFace_Blank
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 21300000, guid: 10dd927fc6ee8c84eb6831284f9cd191, type: 3}
-  type: 0
+  type: {fileID: 11400000, guid: 3dc6b3e8136fec44897fa599da7d93af, type: 2}
   value: 1

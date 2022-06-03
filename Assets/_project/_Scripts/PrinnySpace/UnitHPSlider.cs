@@ -39,9 +39,9 @@ public class UnitHPSlider : MonoBehaviour
         else
         {
             blockImage.gameObject.SetActive(true);
-            blockText.text = unit.block.ToString();
+            blockText.text = $"{unit.block}";
         }
 
-        hpText.text = unit.HP.ToString();
+        hpText.text = $"{unit.HP}/{unit.maxHP}";
     }
 }

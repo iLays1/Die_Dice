@@ -69,12 +69,7 @@ public class DiceInfoPanel : MonoBehaviour
         transform.DOKill();
 
         if (instant)
-        {
-            transform.position = finalPos;
-        }
-        else
-        {
-            transform.DOMove(finalPos, 0.35f);
-        }
+             transform.position = finalPos;
+        else transform.DOMove(finalPos, 0.35f);
     }
 }

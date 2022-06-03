@@ -11,6 +11,7 @@ public class SkullHP : MonoBehaviour
     private void Awake()
     {
         CombatManager.OnTurnStart.AddListener(ShowAll);
+        CombatManager.OnTurnEnd.AddListener(HideAll);
         PlayerDiceManager.OnUpdateDiceValues.AddListener(CheckValuesForPop);
     }
 
@@ -22,6 +23,14 @@ public class SkullHP : MonoBehaviour
         {
             if (i.hidden)
                 i.Show();
+        }
+    }
+    public void HideAll()
+    {
+        foreach (var i in images)
+        {
+            if (!i.hidden)
+                i.Hide();
         }
     }
 

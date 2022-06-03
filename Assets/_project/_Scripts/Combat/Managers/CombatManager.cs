@@ -68,19 +68,17 @@ public class CombatManager : Singleton<CombatManager>
         yield return new WaitForSeconds(0.2f);
 
         var opos = playerUnit.transform.position;
-        for (int i = 0; i < diceManager.attacksRolled; i++)
+        if (diceManager.attacksRolled > 0)
         {
             //Player Attack code
-            
             playerUnit.transform.DOComplete();
-            
             Sequence s = DOTween.Sequence();
             s.Append(playerUnit.transform.DORotate(new Vector3(75f, 90, -90), 0.4f));
             s.Append(playerUnit.transform.DORotate(new Vector3(110, 90, -90), 0.15f).SetEase(Ease.OutBack));
             s.Append(playerUnit.transform.DORotate(new Vector3(90, 0, -180), 0.15f));
             
             yield return new WaitForSeconds(0.4f);
-            enemyUnit.TakeDamage(GameDataSystem.Instance.attackPower);
+            enemyUnit.TakeDamage(GameDataSystem.Instance.attackPower * diceManager.attacksRolled);
             yield return new WaitForSeconds(0.2f);
         }
         playerUnit.transform.DOMove(opos, 0.3f);
