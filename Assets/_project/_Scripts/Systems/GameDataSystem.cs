@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,8 @@ public class GameDataSystem : SingletonPersistent<GameDataSystem>
     protected override void Awake()
     {
         base.Awake();
+
+        DOTween.SetTweensCapacity(500, 100);
 
         CombatManager.OnTurnStart.AddListener(() =>
         {

@@ -57,8 +57,8 @@ public class Dice : MonoBehaviour
 
         Invoke("PlayRollNoise", 0.5f);
         transform.DOKill();
-        s.Append(transform.DORotate((newEnd + dumb) * 3f, 1.2f*Random.Range(0.8f,1.2f), RotateMode.FastBeyond360).SetEase(Ease.InBack));
-        s.Append(transform.DORotate(newEnd, 1f, RotateMode.FastBeyond360).SetEase(Ease.OutElastic));
+        s.Append(transform.DORotate((newEnd + dumb) * 5f, 1f*Random.Range(1f,1.3f), RotateMode.FastBeyond360).SetEase(Ease.InBack));
+        s.Append(transform.DORotate(newEnd, 1f, RotateMode.FastBeyond360).SetEase(Ease.OutQuint));
     }
     void PlayRollNoise()
     {

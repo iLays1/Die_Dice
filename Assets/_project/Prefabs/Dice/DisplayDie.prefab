@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1129987975946016013, guid: 687b77bc75ff8bc408012326cf4ce23f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129987975946016013, guid: 687b77bc75ff8bc408012326cf4ce23f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1576910487
+      objectReference: {fileID: 0}
     - target: {fileID: 1216891379968471261, guid: 687b77bc75ff8bc408012326cf4ce23f, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -44,6 +52,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5787572578515312596, guid: 687b77bc75ff8bc408012326cf4ce23f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137672452482386342, guid: 687b77bc75ff8bc408012326cf4ce23f, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
@@ -105,7 +117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6272447018129168650, guid: 687b77bc75ff8bc408012326cf4ce23f, type: 3}
       propertyPath: m_Name
-      value: DisplayDie Variant
+      value: DisplayDie
       objectReference: {fileID: 0}
     - target: {fileID: 6272447018129168650, guid: 687b77bc75ff8bc408012326cf4ce23f, type: 3}
       propertyPath: m_Layer

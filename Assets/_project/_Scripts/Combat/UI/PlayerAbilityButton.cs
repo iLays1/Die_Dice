@@ -14,6 +14,7 @@ public class PlayerAbilityButton : MonoBehaviour
     [SerializeField] TextMeshProUGUI useCountMesh;
     [SerializeField] TextMeshProUGUI descriptionMesh;
     [SerializeField] GameObject descriptionObject;
+    [SerializeField] ParticleSystem useParticle;
     [SerializeField] Image image;
     
     private void Start()
@@ -50,6 +51,7 @@ public class PlayerAbilityButton : MonoBehaviour
 
             if (uses > 0)
             {
+                useParticle.Play();
                 ability.Use();
                 uses--;
                 UpdateVisuals();

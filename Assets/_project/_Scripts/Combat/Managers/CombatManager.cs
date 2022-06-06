@@ -68,7 +68,7 @@ public class CombatManager : Singleton<CombatManager>
         yield return new WaitForSeconds(0.2f);
 
         var opos = playerUnit.transform.position;
-        if (diceManager.attacksRolled > 0)
+        if (diceManager.totalAttacksRolled > 0)
         {
             //Player Attack code
             playerUnit.transform.DOComplete();
@@ -78,19 +78,19 @@ public class CombatManager : Singleton<CombatManager>
             s.Append(playerUnit.transform.DORotate(new Vector3(90, 0, -180), 0.15f));
             
             yield return new WaitForSeconds(0.4f);
-            enemyUnit.TakeDamage(GameDataSystem.Instance.attackPower * diceManager.attacksRolled);
+            enemyUnit.TakeDamage(GameDataSystem.Instance.attackPower * diceManager.totalAttacksRolled);
             yield return new WaitForSeconds(0.2f);
         }
         playerUnit.transform.DOMove(opos, 0.3f);
 
-        if(diceManager.blocksRolled > 0)
+        if(diceManager.totalBlocksRolled > 0)
         {
             //Player Block code
 
             yield return new WaitForSeconds(0.35f);
             playerUnit.transform.DOComplete();
             playerUnit.transform.DOJump(playerUnit.transform.position, 1, 1, 0.8f).SetEase(Ease.OutBack);
-            playerUnit.GainArmour(diceManager.blocksRolled * GameDataSystem.Instance.blockPower);
+            playerUnit.GainArmour(diceManager.totalBlocksRolled * GameDataSystem.Instance.blockPower);
         }
 
         yield return new WaitForSeconds(0.6f);

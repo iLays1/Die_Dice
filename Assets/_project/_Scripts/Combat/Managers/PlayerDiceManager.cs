@@ -23,11 +23,13 @@ public class PlayerDiceManager : Singleton<PlayerDiceManager>
     [HideInInspector] public List<DiceData> diceInBag;
     [HideInInspector] public List<DiceData> diceInDiscard;
     [HideInInspector] public int skullsRolled;
-    [HideInInspector] public int attacksRolled;
-    [HideInInspector] public int blocksRolled;
+    [HideInInspector] public int totalAttacksRolled;
+    [HideInInspector] public int totalBlocksRolled;
+    [HideInInspector] public bool critStored;
 
     const float JUMPTIME = 0.8f;
     const float JUMPFORCE = 4f;
+    
 
     protected override void Awake()
     {
@@ -37,8 +39,8 @@ public class PlayerDiceManager : Singleton<PlayerDiceManager>
 
         CombatManager.OnTurnStart.AddListener(() =>
         {
-            attacksRolled = 0;
-            blocksRolled = 0;
+            totalAttacksRolled = 0;
+            totalBlocksRolled = 0;
             skullsRolled = 0;
 
             OnUpdateDiceValues.Invoke();
@@ -163,9 +165,16 @@ public class PlayerDiceManager : Singleton<PlayerDiceManager>
 
         yield return new WaitForSeconds(2f);
 
-        attacksRolled += attacks;
-        blocksRolled += blocks;
+        if (critStored)
+        {
+            attacks *= 2;
+            blocks *= 2;
+            critStored = false;
+        }
 
+        totalAttacksRolled += attacks;
+        totalBlocksRolled += blocks;
+        
         if(!allMatching)
             skullsRolled += skulls;
 
@@ -174,6 +183,7 @@ public class PlayerDiceManager : Singleton<PlayerDiceManager>
         if (allMatching)
         {
             TextPopup.Create("Matched 3", Color.yellow, transform.position);
+            critStored = true;
             Debug.Log($"CRIT");
         }
 
@@ -183,8 +193,8 @@ public class PlayerDiceManager : Singleton<PlayerDiceManager>
 
         if (skullsRolled >= 3)
         {
-            attacksRolled = 0;
-            blocksRolled = 0;
+            totalAttacksRolled = 0;
+            totalBlocksRolled = 0;
 
             OnUpdateDiceValues.Invoke();
             

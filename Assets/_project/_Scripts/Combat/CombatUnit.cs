@@ -15,6 +15,7 @@ public class CombatUnit : MonoBehaviour
 
     [SerializeField] Transform unitCanvas;
     [SerializeField] Transform textPopupLocation;
+    [SerializeField] ParticleSystem hitParticle;
 
     public int HP;
     public int maxHP;
@@ -64,6 +65,7 @@ public class CombatUnit : MonoBehaviour
         if (trueDamage > 0)
         {
             hitColor = Color.red;
+            hitParticle.Play();
             transform.DOPunchScale((Vector3.back + Vector3.right) * 0.2f, 0.4f, 0);
         }
         
