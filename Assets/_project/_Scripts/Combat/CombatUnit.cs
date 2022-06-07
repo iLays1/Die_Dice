@@ -13,6 +13,8 @@ public class CombatUnit : MonoBehaviour
     [HideInInspector]
     public UnityEvent OnUnitDeath = new UnityEvent();
 
+    public Transform armTransform;
+
     [SerializeField] Transform unitCanvas;
     [SerializeField] Transform textPopupLocation;
     [SerializeField] ParticleSystem hitParticle;

@@ -51,9 +51,9 @@ public class EnemyBehavior : MonoBehaviour
         unitSelf.transform.DOComplete();
 
         Sequence s = DOTween.Sequence();
-        s.Append(unitSelf.transform.DORotate(new Vector3(75f, -90, 90), 0.8f));
-        s.Append(unitSelf.transform.DORotate(new Vector3(110, -90, 90), 0.15f).SetEase(Ease.OutBack));
-        s.Append(unitSelf.transform.DORotate(new Vector3(90, -90, 90), 0.3f));
+        s.Append(unitSelf.armTransform.DORotate(new Vector3(75f, -90, 90), 0.8f));
+        s.Append(unitSelf.armTransform.DORotate(new Vector3(110, -90, 90), 0.15f).SetEase(Ease.OutBack));
+        s.Append(unitSelf.armTransform.DORotate(new Vector3(90, -90, 90), 0.3f));
 
         yield return new WaitForSeconds(0.8f);
         playerUnit.TakeDamage(damage + power);
